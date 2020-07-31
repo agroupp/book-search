@@ -1,0 +1,17 @@
+<div class="wrapper" *ngIf="!loading">
+  <div class="image">
+    <img src="/assets/bookshelf.png" alt="bookshelf">
+  </div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="row">
+      <mat-form-field>
+        <input matInput formControlName="username" name="username" placeholder="Username">
+        <mat-hint>Username must be at least 2 characters length</mat-hint>
+        <mat-error *ngIf="form.invalid">Please enter your username</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <button mat-raised-button color="accent" type="submit">Sign In</button>
+    </div>
+  </form>
+</div>

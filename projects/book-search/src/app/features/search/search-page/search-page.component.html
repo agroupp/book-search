@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <h1 class="greetings">Let's find the book, {{ userName }}</h1>
+  <section class="search-bar-row">
+    <sqr-search-bar (query)="search($event)"></sqr-search-bar>
+  </section>
+  <section class="results">
+    <div class="no-query" *ngIf="!currentQuery">
+      <h2>Start typing in search bar and get the results...</h2>
+    </div>
+  </section>
+</div>

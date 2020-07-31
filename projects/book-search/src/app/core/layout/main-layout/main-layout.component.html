@@ -1,0 +1,14 @@
+<mat-toolbar class="mat-elevation-z2" *ngIf="isSignedIn$ | async">
+  <img class="brand" src="/assets/book.png" alt="Book">
+  <div class="spacer"></div>
+  <div class="controls">
+    <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </div>
+  <mat-menu #profileMenu>
+    <p mat-menu-item disabled>{{ userName }}</p>
+    <button mat-menu-item (click)="signOut()">Sign Out</button>
+  </mat-menu>
+</mat-toolbar>
+<router-outlet></router-outlet>

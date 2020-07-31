@@ -1,0 +1,22 @@
+.wrapper {
+  padding: 1rem;
+}
+
+.greetings {
+  font-size: 1.2rem;
+}
+
+.search-bar-row {
+  max-width: 36rem;
+}
+
+.no-query h2 {
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+@media (min-width: 767px) {
+  .greetings {
+    font-size: 1.5rem;
+  }
+}
