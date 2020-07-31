@@ -1,5 +1,11 @@
+$max-width: 36rem;
+
 .wrapper {
   padding: 1rem;
+  min-height: calc(100vh - 56px);
+  max-height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: column;
 }
 
 .greetings {
@@ -15,7 +21,48 @@
   font-size: 1.1rem;
 }
 
-@media (min-width: 767px) {
+.results {
+  flex: 1 1 0%;
+  overflow-y: auto;
+  padding: 0 0.25rem;
+
+  .card-wrapper {
+    max-width: $max-width;
+    margin-bottom: 1rem;
+    cursor: pointer;
+
+    .title {
+      font-weight: 500;
+      font-size: 1.3;
+    }
+
+    .info {
+      span {
+        margin-right: 1rem;
+      }
+    }
+  }
+  .loading {
+    max-width: $max-width;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3rem;
+  }
+}
+
+.paginator {
+  max-width: $max-width;
+}
+
+@media (min-width: 600px) {
+  .wrapper {
+    min-height: calc(100vh - 64px);
+    max-height: calc(100vh - 64px);
+  }
+
   .greetings {
     font-size: 1.5rem;
   }

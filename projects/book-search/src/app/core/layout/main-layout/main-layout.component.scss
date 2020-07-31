@@ -1,3 +1,8 @@
-.brand {
+a {
+  display: block;
   height: 70%;
+
+  .brand {
+    height: 100%;
+  }
 }

@@ -7,6 +7,11 @@ div, section, input, button {
   box-sizing: border-box;
 }
 
+p, h1, h2 {
+  margin: 0;
+  line-height: 1.5;
+}
+
 .spacer {
   flex: 1 1 0%;
 }

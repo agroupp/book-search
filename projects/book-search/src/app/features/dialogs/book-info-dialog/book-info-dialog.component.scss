@@ -1,0 +1,49 @@
+.title-row {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+
+  h1 {
+    flex: 1 1 0%;
+    margin-right: 1rem;
+    font-size: 1.3rem;
+  }
+}
+
+.content {
+  display: flex;
+  min-height: 120px;
+  margin-bottom: 1rem;
+
+  .image {
+    min-width: 5rem;
+    max-width: 5rem;
+    margin-right: 1rem;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .rigth-side {
+    flex: 1 1 100%;
+
+    .authors {
+      margin-bottom: 2.5rem;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+@media (min-width: 600px) {
+  .content .image {
+    min-width: 10rem;
+    max-width: 10rem;
+  }
+}

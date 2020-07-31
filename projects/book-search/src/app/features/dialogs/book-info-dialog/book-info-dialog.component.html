@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Book Info</h1>
+<div mat-dialog-mat-dialog-content>
+  <div class="title-row">
+    <h1>{{ book.volumeInfo.title }}</h1>
+    <button mat-icon-button (click)="toggleList()">
+      <mat-icon color="accent" *ngIf="!isInWishList">favorite_border</mat-icon>
+      <mat-icon color="accent" *ngIf="isInWishList">favorite</mat-icon>
+    </button>
+  </div>
+  <div class="content">
+    <div class="image" *ngIf="book.volumeInfo.imageLinks">
+      <img [src]="book.volumeInfo.imageLinks.smallThumbnail">
+    </div>
+    <div class="rigth-side">
+      <div class="authors" *ngIf="book.volumeInfo.authors">
+        <p><b>By:</b></p>
+        <p *ngFor="let a of book.volumeInfo.authors">{{ a }}</p>
+      </div>
+      <p><b>Page count:</b> {{ book.volumeInfo.pageCount }}</p>
+      <p><b>Published:</b> {{ book.volumeInfo.publishedDate }}</p>
+    </div>
+  </div>
+</div>
+<div mat-dialog-mat-dialog-actions class="actions">
+  <button mat-raised-button color="accent" mat-dialog-close>Close</button>
+</div>

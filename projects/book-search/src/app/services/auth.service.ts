@@ -10,10 +10,8 @@ const LS_KEY = '_e-sqr_bs_user';
 export class AuthService {
   // tslint:disable-next-line:variable-name
   private _userName!: string;
-  private userNameSubject = new BehaviorSubject<string>('');
   private isSignedInSubject = new BehaviorSubject<boolean>(false);
   get userName(): string { return this._userName; }
-  get userName$(): Observable<string> { return this.userNameSubject.asObservable(); }
   get isSignedIn(): boolean { return !!this.userName; }
   get isSignedIn$(): Observable<boolean> {return this.isSignedInSubject.asObservable(); }
 

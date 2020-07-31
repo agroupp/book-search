@@ -21,7 +21,9 @@
       "dom"
     ],
     "paths": {
-      "@services": ["./projects/book-search/src/app/services"]
+      "@services": ["./projects/book-search/src/app/services"],
+      "@data": ["./projects/book-search/src/app/data"],
+      "@dialogs": ["./projects/book-search/src/app/features/dialogs"]
     }
   },
   "angularCompilerOptions": {
