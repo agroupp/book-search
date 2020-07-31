@@ -1,15 +1,15 @@
-import { Observable, Subscription } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService, BooksApiService, WishlistService } from '@services';
 import { Book } from '@data';
-import { tap, map } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'sqr-wishlist-page',
   templateUrl: './wishlist-page.component.html',
   styleUrls: ['./wishlist-page.component.scss']
 })
-export class WishlistPageComponent implements OnInit {
+export class WishlistPageComponent implements OnInit, OnDestroy {
   userName = '';
   loading = true;
   books!: Book[];
@@ -34,5 +34,11 @@ export class WishlistPageComponent implements OnInit {
         this.books = books;
       })
     ).subscribe();
+  }
+
+  ngOnDestroy(): void {
+    if (this.booksSubscription) {
+      this.booksSubscription.unsubscribe();
+    }
   }
 }
