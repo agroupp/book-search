@@ -1,4 +1,8 @@
+import { Observable, Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { AuthService, BooksApiService, WishlistService } from '@services';
+import { Book } from '@data';
+import { tap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'sqr-wishlist-page',
@@ -6,10 +10,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wishlist-page.component.scss']
 })
 export class WishlistPageComponent implements OnInit {
+  userName = '';
+  loading = true;
+  books!: Book[];
+  booksSubscription!: Subscription;
 
-  constructor() { }
+  constructor(private auth: AuthService, private api: BooksApiService, private wishListService: WishlistService) { }
 
   ngOnInit(): void {
+    this.userName = this.auth.userName;
+    this.init();
   }
 
+  remove(book: Book): void {
+    this.wishListService.remove(book.id);
+    this.books = this.books.filter(b => b.id !== book.id);
+  }
+
+  private init(): void {
+    this.booksSubscription = this.api.getList(this.wishListService.wishList).pipe(
+      tap(books => {
+        this.loading = false;
+        this.books = books;
+      })
+    ).subscribe();
+  }
 }

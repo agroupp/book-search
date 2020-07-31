@@ -7,6 +7,11 @@ const routes: Routes = [
     path: 'search',
     loadChildren: () => import('./features/search/search.module').then(m => m.SearchModule),
     canLoad: [ AuthGuard ]
+  },
+  {
+    path: 'wishlist',
+    loadChildren: () => import('./features/wishlist/wishlist.module').then(m => m.WishlistModule),
+    canLoad: [ AuthGuard ]
   }
 ];
 

@@ -6,38 +6,41 @@ const LS_KEY = '_e-sqr_bs_wishlist';
   providedIn: 'root'
 })
 export class WishlistService {
-  private wishList: string[] = [];
+  // tslint:disable-next-line:variable-name
+  private _wishList: string[] = [];
+  get wishList(): string[] { return this._wishList; }
+
   constructor() { }
 
   getInitial(): void {
     try {
-      this.wishList = !!localStorage.getItem(LS_KEY) ? JSON.parse(localStorage.getItem(LS_KEY) as string) : [];
+      this._wishList = !!localStorage.getItem(LS_KEY) ? JSON.parse(localStorage.getItem(LS_KEY) as string) : [];
     } catch {
-      this.wishList = [];
+      this._wishList = [];
     }
   }
 
   add(bookId: string): void {
-    if (this.wishList.indexOf(bookId) > -1) {
+    if (this._wishList.indexOf(bookId) > -1) {
       return;
     }
-    this.wishList.push(bookId);
+    this._wishList.push(bookId);
     this.save();
   }
 
   remove(bookId: string): void {
-    if (this.wishList.indexOf(bookId) === -1) {
+    if (this._wishList.indexOf(bookId) === -1) {
       return;
     }
-    this.wishList = this.wishList.filter(id => id !== bookId);
+    this._wishList = this._wishList.filter(id => id !== bookId);
     this.save();
   }
 
   isInList(bookId: string): boolean {
-    return this.wishList.indexOf(bookId) > -1;
+    return this._wishList.indexOf(bookId) > -1;
   }
 
   private save(): void {
-    localStorage.setItem(LS_KEY, JSON.stringify(this.wishList));
+    localStorage.setItem(LS_KEY, JSON.stringify(this._wishList));
   }
 }

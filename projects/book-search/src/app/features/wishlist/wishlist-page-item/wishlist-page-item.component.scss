@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+
+  .image {
+    display: none;
+  }
+
+  .right-side {
+    flex: 1 1 auto;
+
+    .title {
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+  }
+
+  .controls {
+    margin-left: 0.5rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .wrapper .image {
+    display: block;
+    min-width: 10rem;
+    max-width: 10rem;
+    margin-right: 1rem;
+
+    img {
+      width: 100%;
+    }
+  }
+}

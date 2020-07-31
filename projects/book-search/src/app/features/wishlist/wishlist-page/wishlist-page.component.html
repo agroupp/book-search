@@ -1,1 +1,16 @@
-<p>wishlist-page works!</p>
+<div class="wrapper">
+  <h1>Here is your wishlist, {{ userName }}</h1>
+  <section class="list" *ngIf="books; else loading">
+    <div *ngIf="books.length > 0; else noResults">
+      <sqr-wishlist-page-item *ngFor="let book of books" [book]="book" (remove)="remove(book)"></sqr-wishlist-page-item>
+    </div>
+    <ng-template #noResults>
+      <p>You still didn't add any book to your wishlist</p>
+    </ng-template>
+  </section>
+  <ng-template #loading>
+    <div class="loading">
+      <mat-spinner color="accent"></mat-spinner>
+    </div>
+  </ng-template>
+</div>

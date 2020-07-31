@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { BookInfoDialogComponent } from './book-info-dialog/book-info-dialog.component';
 
@@ -13,7 +14,8 @@ import { BookInfoDialogComponent } from './book-info-dialog/book-info-dialog.com
     CommonModule,
     MatDialogModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule
   ]
 })
 export class DialogsModule { }
